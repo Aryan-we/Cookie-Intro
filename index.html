@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <p style="font-size:20px;" id="download">Please wait download will start in <span id="c">10</span> seconds!</p>
+    <a href="./img1.png" download="photo" style="font-size:20px;" id="link">Click here if download is not start</a>
+    <script>
+        
+        window.onload=function(){
+            if(document.cookie==""){
+            var a=parseInt(prompt("Enter Your Mobile Number:"),10);
+            document.cookie="name="+a+";expires=Mon,30 Jun 2025 23:00:00 UTC";
+            }
+            
+            var count=10;
+            function func(){
+                var span=document.getElementById("c");
+                span.innerHTML=count;
+                count-=1;
+                if(count==-1){
+                    clearInterval(a);
+                    document.getElementById("link").click();
+                    document.getElementById("download").innerHTML="Downloading Done!";
+                   // window.open("./part1.html","_parent");
+
+                }
+            }
+             var a=setInterval(func,1000);
+
+        }
+    </script>
+    
+</body>
+</html>
